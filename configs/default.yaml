@@ -1,0 +1,32 @@
+preprocess:
+  min_reads: 2
+  min_relative_abundance: 0.0
+  drop_tail_quantile: 0.0
+  abundance: cpm_log1p
+  min_items: 1
+
+pretrain:
+  d_model: 256
+  n_heads: 4
+  ffn_dim: 512
+  num_layers: 3
+  embedding_dim: 64
+  depth_strategy: mlp
+  loss_weights: denoise=1.0,contrastive=0.5
+  batch_size: 32
+  epochs: 100
+  val_ratio: 0.1
+  lr: 0.0003
+  weight_decay: 0.01
+  precision: bf16
+
+finetune:
+  head_hidden: 128
+  dropout: 0.1
+  loss: bce
+  pos_weight: auto
+  kfold: 5
+  epochs: 50
+  lr: 0.001
+  weight_decay: 0.001
+  freeze_encoder: true
