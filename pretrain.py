@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-
 import argparse
 import pickle
 from pathlib import Path
